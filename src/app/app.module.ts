@@ -11,6 +11,7 @@ import { LyGridModule } from '@alyle/ui/grid';
 import { LyButtonModule } from '@alyle/ui/button';
 import { LyIconModule } from '@alyle/ui/icon';
 import { LyCardModule } from '@alyle/ui/card';
+import { LyAvatarModule } from '@alyle/ui/avatar';
 import { MinimaDark } from '@alyle/ui/themes/minima';
 import { Paper1Component } from './paper1/paper1.component';
 import { Paper2Component } from './paper2/paper2.component';
@@ -44,7 +45,8 @@ import { HttpClientModule } from '@angular/common/http';
     LyToolbarModule,
     LyGridModule,
     LyCardModule,
-    LyIconModule
+    LyIconModule,
+    LyAvatarModule
   ],
   providers: [{ provide: LY_THEME, useClass: MinimaDark, multi: true }],
   bootstrap: [AppComponent]
