@@ -3,8 +3,19 @@ import * as UserActions from './../actions/user.action'
 import { User } from 'src/app/model/user.model';
 
 const initalUserState: UserState = {
-  users: null,
-  selectedId: null
+  users: [
+    {
+      id: 1,
+      age: 34,
+      name: 'Mark Zuckerberg'
+    },
+    {
+      id: 2,
+      age: 72,
+      name: 'Donald Trump'
+    }
+  ],
+  selectedId: 2
 };
 
 export function reducer(state: UserState = initalUserState, action: UserActions.Actions) {

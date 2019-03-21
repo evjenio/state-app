@@ -1,6 +1,13 @@
-<ly-paper [withClass]="classes.paper" [elevation]="2">
-  <h3 [lyTyp]="'title'">Title</h3>
-  <p [lyTyp]="'body1'">
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-  </p>
-</ly-paper>
+<div [className]="classes.paper">
+  <ly-paper>
+    <ly-list>
+      <ly-list-item *ngFor="let user of users$ | async as users">
+        <ly-avatar>
+          {{ user.id }}
+        </ly-avatar>
+        <h4 ly-line>{{ user.name }}</h4>
+        <p ly-line>{{ user.age }}</p>
+      </ly-list-item>
+    </ly-list>
+  </ly-paper>
+</div>

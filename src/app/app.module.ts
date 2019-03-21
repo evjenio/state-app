@@ -12,6 +12,9 @@ import { LyButtonModule } from '@alyle/ui/button';
 import { LyIconModule } from '@alyle/ui/icon';
 import { LyCardModule } from '@alyle/ui/card';
 import { LyAvatarModule } from '@alyle/ui/avatar';
+import { LyListModule } from '@alyle/ui/list';
+import { LyFieldModule } from '@alyle/ui/field';
+import { LyBadgeModule } from '@alyle/ui/badge';
 import { MinimaDark } from '@alyle/ui/themes/minima';
 import { Paper1Component } from './paper1/paper1.component';
 import { Paper2Component } from './paper2/paper2.component';
@@ -20,6 +23,10 @@ import { CommonModule } from '@angular/common';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { IntroComponent } from './intro/intro.component';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './ngrx/reducers/user.reducer';
+import { ReactiveFormsModule } from '@angular/forms';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -36,17 +43,25 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
 
     LyThemeModule.setTheme('minima-dark'),
 
     LyCommonModule,
     LyButtonModule,
+    LyBadgeModule,
     LyTypographyModule,
     LyToolbarModule,
     LyGridModule,
     LyCardModule,
     LyIconModule,
-    LyAvatarModule
+    LyAvatarModule,
+    LyListModule,
+    LyFieldModule,
+    StoreModule.forRoot({ user: reducer}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25
+    })
   ],
   providers: [{ provide: LY_THEME, useClass: MinimaDark, multi: true }],
   bootstrap: [AppComponent]
