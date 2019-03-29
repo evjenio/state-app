@@ -1,5 +1,5 @@
 {
-  "name": "baloon-app",
+  "name": "state-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

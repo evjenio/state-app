@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "baloon-app": {
+    "state-app": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/baloon-app",
+            "outputPath": "dist/state-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "baloon-app:build"
+            "browserTarget": "state-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "baloon-app:build:production"
+              "browserTarget": "state-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "baloon-app:build"
+            "browserTarget": "state-app:build"
           }
         },
         "test": {
@@ -107,7 +107,7 @@
         }
       }
     },
-    "baloon-app-e2e": {
+    "state-app-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -116,11 +116,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "baloon-app:serve"
+            "devServerTarget": "state-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "baloon-app:serve:production"
+              "devServerTarget": "state-app:serve:production"
             }
           }
         },
@@ -136,5 +136,5 @@
       }
     }
   },
-  "defaultProject": "baloon-app"
+  "defaultProject": "state-app"
 }
