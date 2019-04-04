@@ -15,7 +15,7 @@ import { LyAvatarModule } from '@alyle/ui/avatar';
 import { LyListModule } from '@alyle/ui/list';
 import { LyFieldModule } from '@alyle/ui/field';
 import { LyBadgeModule } from '@alyle/ui/badge';
-import { MinimaDark } from '@alyle/ui/themes/minima';
+import { MinimaLight } from '@alyle/ui/themes/minima';
 import { Paper1Component } from './paper1/paper1.component';
 import { Paper2Component } from './paper2/paper2.component';
 import { Paper3Component } from './paper3/paper3.component';
@@ -27,6 +27,8 @@ import { StoreModule } from '@ngrx/store';
 import { reducer } from './ngrx/reducers/user.reducer';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     BrowserAnimationsModule,
     ReactiveFormsModule,
 
-    LyThemeModule.setTheme('minima-dark'),
+    LyThemeModule.setTheme('minima-light'),
 
     LyCommonModule,
     LyButtonModule,
@@ -58,12 +60,14 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     LyAvatarModule,
     LyListModule,
     LyFieldModule,
+    // NGRX
     StoreModule.forRoot({ user: reducer}),
     StoreDevtoolsModule.instrument({
       maxAge: 25
-    })
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [{ provide: LY_THEME, useClass: MinimaDark, multi: true }],
+  providers: [{ provide: LY_THEME, useClass: MinimaLight, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
